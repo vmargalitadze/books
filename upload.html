@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სურათის ატვირთვა</title>
+    <link rel="stylesheet" href="upload.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <img src="./assets/img/logo.png" alt="Logo">
+        <div class="navflex">
+            <a href="./index.html">home</a>
+            <a href="./about.html">about</a>
+            <a href="#">services</a>
+            <a href="#">contact</a>
+            <a href="#">blog</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="upload-container">
+        <div class="upload-wrapper">
+            <h1>წიგნის შექმნა</h1>
+            <p class="subtitle">ატვირთეთ სურათები თქვენი წიგნისთვის</p>
+
+            <!-- Selected Background Preview (when image_id is provided) -->
+            <div id="selectedBackgroundPreview" style="display: none; margin-bottom: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 2px solid #9b59b6;">
+                <h3 style="margin-top: 0; color: #9b59b6;">✓ ბექგრაუნდი ავტომატურად აირჩია</h3>
+                <p style="margin: 5px 0; color: #666;">ეს სურათი გამოყენებული იქნება ბექგრაუნდად</p>
+                <div style="margin-top: 10px;">
+                    <img id="selectedBackgroundImg" src="" alt="Selected Background" style="max-width: 300px; max-height: 200px; border-radius: 5px; border: 2px solid #9b59b6; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <p id="selectedBackgroundName" style="margin-top: 10px; font-weight: bold; color: #333;"></p>
+                </div>
+            </div>
+
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-content">
+                    <h3>გადაიტანეთ სურათები აქ ან დააჭირეთ ასარჩევად</h3>
+                    <p>PNG, JPG, GIF ფორმატები (მაქს. 10MB)</p>
+                    <input type="file" id="fileInput" multiple accept="image/*" style="display: none;">
+                    <button class="btn-upload" onclick="document.getElementById('fileInput').click()">აირჩიეთ ფაილები</button>
+                </div>
+            </div>
+
+            <!-- Background Selection -->
+            <div class="background-section" id="backgroundSection" style="display: none;">
+                <h2>აირჩიეთ ბექგრაუნდი (არასავალდებულო)</h2>
+                <p class="subtitle">აირჩიეთ ბექგრაუნდი Supabase-დან ან დატოვეთ ცარიელი</p>
+                <div class="background-selector">
+                    <select id="backgroundSelect" style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px;">
+                        <option value="">ბექგრაუნდის გარეშე</option>
+                    </select>
+                    <button class="btn btn-secondary" id="loadBackgroundsBtn" style="margin-top: 10px;">ბექგრაუნდების ჩატვირთვა</button>
+                </div>
+                <div id="backgroundPreview" style="margin-top: 15px; display: none;">
+                    <img id="backgroundPreviewImg" src="" alt="Background Preview" style="max-width: 200px; max-height: 200px; border-radius: 5px; border: 2px solid #9b59b6;">
+                </div>
+            </div>
+
+            <!-- Preview Area -->
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h2>ატვირთული სურათები</h2>
+                <div class="preview-grid" id="previewGrid">
+                    <!-- Preview images will be added here -->
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary" onclick="window.location.href='./index.html'">გაუქმება</button>
+                <button class="btn btn-primary" id="saveBtn" style="display: none;">შენახვა</button>
+                <button class="btn btn-primary" id="generateCharactersBtn" style="display: none; background: #9b59b6;">ზღაპრის გმირების შექმნა</button>
+            </div>
+
+            <!-- Generated Characters Section -->
+            <div class="characters-section" id="charactersSection" style="display: none;">
+                <h2>შექმნილი ზღაპრის გმირები</h2>
+                <div class="characters-grid" id="charactersGrid">
+                    <!-- Generated characters will be displayed here -->
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+
+    <script src="upload.js"></script>
+</body>
+</html>
+

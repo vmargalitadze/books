@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სურათების გალერეა</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="images.css">
+</head>
+<body>
+    <!-- SOCIAL MEDIA -->
+    <div class="social-media">
+        <div class="simg">
+            <img src="./assets/img/facebook.png" alt="Facebook" />
+            <img src="./assets/img/instagram.png" alt="Instagram" />
+            <img src="./assets/img/tiktok.png" alt="TikTok" />
+        </div>
+        <p style="text-transform: uppercase;">წიგნი რომელიც შენთვის დაიწერა</p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <img src="./assets/img/logo.png" alt="">
+        <div class="navflex">
+            <a href="./index.html">home</a>
+            <a href="./about.html">about</a>
+            <a href="#">services</a>
+            <a href="#">contact</a>
+            <a href="#">blog</a>
+        </div>
+    </nav>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section">
+        <h1 class="gallery-title">ჩვენი წიგნების კოლექცია</h1>
+        <p class="gallery-subtitle">აირჩიეთ წიგნი და შეუკვეთეთ თქვენი პერსონალიზებული წიგნი</p>
+        
+        <!-- Books List -->
+        <div id="booksContainer" class="gallery-container">
+            <div class="loading" id="loading">იტვირთება...</div>
+        </div>
+        
+        <!-- Back Button (hidden by default) -->
+        <div id="backButtonContainer" style="display: none; text-align: center; margin: 30px 0;">
+            <button id="backToBooksBtn" class="btn-back">← უკან წიგნებზე</button>
+        </div>
+        
+        <!-- Book Images Gallery (hidden by default) -->
+        <div id="bookImagesContainer" class="gallery-container" style="display: none;">
+        </div>
+        
+        <!-- Upload Section for Personalization (hidden by default) -->
+        <div id="uploadSection" style="display: none; max-width: 800px; margin: 40px auto; padding: 30px; background: white; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #1a2b4a; margin-bottom: 20px;">პერსონალიზაცია</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">ატვირთეთ თქვენი სურათები, რომ ისინი ჩაჯდეს წიგნის ფურცლებში</p>
+            
+            <!-- Upload Area -->
+            <div class="upload-area" id="uploadArea" style="border: 2px dashed #ddd; border-radius: 10px; padding: 40px; text-align: center; margin-bottom: 20px; cursor: pointer; transition: all 0.3s;" 
+                 onmouseover="this.style.borderColor='var(--coral-dark)'; this.style.backgroundColor='#fafafa';" 
+                 onmouseout="this.style.borderColor='#ddd'; this.style.backgroundColor='white';"
+                 onclick="document.getElementById('userFileInput').click()">
+                <div class="upload-content">
+                    <h3 style="color: #1a2b4a; margin-bottom: 10px;">გადაიტანეთ სურათები აქ ან დააჭირეთ ასარჩევად</h3>
+                    <p style="color: #666;">PNG, JPG, GIF ფორმატები (მაქს. 10MB)</p>
+                    <input type="file" id="userFileInput" multiple accept="image/*" style="display: none;">
+                </div>
+            </div>
+            
+            <!-- Preview Uploaded Images -->
+            <div id="uploadedPreview" style="display: none; margin-bottom: 20px;">
+                <h3 style="color: #1a2b4a; margin-bottom: 15px;">ატვირთული სურათები:</h3>
+                <div id="uploadedPreviewGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px;">
+                </div>
+            </div>
+            
+            <!-- Generate Button -->
+            <div style="text-align: center; margin-top: 30px;">
+                <button id="generatePersonalizedBtn" class="btn-back" style="display: none; padding: 15px 40px; font-size: 18px;">
+                    შექმნა პერსონალიზებული წიგნი
+                </button>
+            </div>
+            
+            <!-- Generated Images -->
+            <div id="generatedImagesContainer" style="display: none; margin-top: 40px;">
+                <h3 style="color: #1a2b4a; margin-bottom: 20px; text-align: center;">შექმნილი პერსონალიზებული ფურცლები:</h3>
+                <div id="generatedImagesGrid" class="gallery-container" style="display: grid;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="fd1">
+            <img src="./assets/img/logo.png" alt="">
+            <p>A space for curious, creative & inquisitive young minds that love to create & play.</p>
+            <div class="icons"></div>
+        </div>
+        <div>
+            <h3>ABOUT US</h3>
+            <ul>
+                <li>About me</li>
+                <li>Our services</li>
+                <li>Our team</li>
+                <li>Contact us</li>
+            </ul>
+        </div>
+        <div>
+            <h3>INSTAGRAM</h3>
+            <div class="insta-gallery">
+                <img src="./assets/img/facebook.png" alt="" />
+                <img src="./assets/img/instagram.png" alt="" />
+                <img src="./assets/img/tiktok.png" alt="" />
+            </div>
+        </div>
+    </footer>
+
+    <script src="images.js"></script>
+</body>
+</html>
+

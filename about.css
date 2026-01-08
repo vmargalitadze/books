@@ -1,0 +1,291 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+}
+
+#header {
+    position: relative;
+    background-color: #F5F5EF;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+}
+
+.nav {
+    position: absolute;
+    left: 0;
+    margin-left: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: rgb(83, 82, 82);
+} 
+
+.logo {
+    font-size: 20px;
+    color: rgb(36, 209, 209);
+    display: flex;
+    justify-content: center;
+}
+
+/* section1 */
+
+#section1 {
+    width: 100%;
+    height: 500px;
+    background-color: #F3BCAC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* section 2 */
+
+/* SECTION */
+
+
+/* MAIN GRID */
+.team-layout {
+    max-width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+    background: #f7f6f2;
+    border-radius: 40px;
+    padding: 50px;
+}
+
+/* LEFT TEXT */
+.team-text h1 {
+    font-size: 40px;
+    color: #ff4a2d;
+    line-height: 1.2;
+    margin-bottom: 24px;
+}
+
+.team-text span {
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 2px solid #222;
+    border-radius: 999px;
+    color: #222;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+/* RIGHT GRID */
+.team-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 14px;
+}
+
+.card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 10px;
+}
+
+.card h3 {
+    font-size: 14px;
+    color: #ff4a2d;
+}
+
+.card p {
+    font-size: 11px;
+    color: #777;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .team-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .team-text {
+        text-align: center;
+    }
+
+    .team-text h1 {
+        font-size: 32px;
+    }
+}
+
+
+/* section3 */
+
+#section3 {
+    width: 100%;
+    height: 400px;
+    gap: 20px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.big-texts {
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    border-bottom: 2px  solid;
+    width: 40%;
+}
+
+#section3 p {
+    width: 35%;
+    text-align: center;
+}
+
+/* sectiont */
+
+
+/* section 6 */
+
+#section6 {
+    width: 100%;
+    height: 700px;
+    background-color: #B1D8D2;
+}
+
+
+/* section 7  */
+
+#section7 {
+    width: 100%;
+    height: 300px;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding-top: 50px;
+}
+
+.promocode input {
+    width: 450px;
+    height: 40px;
+    border-radius: 25px;
+    text-align: center;
+    border: none;
+    background-color: #F6F0EA;
+    outline: none;
+}
+
+.promocode {
+    position: relative;
+}
+
+.promocode button {
+    border: none;
+    background-color: #E66D21;
+    color: white;
+    width: 80px;
+    height: 40px;
+    border-radius: 25px;
+    position: absolute;
+    right: 0;
+
+}
+
+
+/* footer */
+
+footer {
+    width: 100%;
+    height: 300px;
+    background-color: #F6F0EA;
+}
+
+
+/* -----------------------------
+   FOOTER MAIN WRAPPER
+------------------------------ */
+.footer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    padding: 60px;
+    background: #faf4ee;
+    border-radius: 0 0 40px 40px;
+}
+
+
+/* -----------------------------
+   TITLES / HEADINGS
+------------------------------ */
+h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a2b4a;
+    margin-bottom: 12px;
+}
+
+/* -----------------------------
+   TEXT ELEMENTS
+------------------------------ */
+p,
+li {
+    font-size: 14px;
+    color: #444;
+    margin: 6px 0;
+    list-style: none;
+}
+
+ul {
+    padding: 0;
+}
+
+
+/* -----------------------------
+   ICONS
+------------------------------ */
+.icons img {
+    width: 18px;
+    margin-right: 10px;
+}
+
+
+/* -----------------------------
+   INSTAGRAM GALLERY
+------------------------------ */
+.insta-gallery {
+    display: flex;
+    gap: 10px;
+}
+
+.insta-gallery img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+

@@ -1,0 +1,221 @@
+:root {
+    --coral: #f37765;
+    --coral-dark: #FD5932;
+}
+
+.gallery-section {
+    width: 100%;
+    min-height: 80vh;
+    padding: 60px 20px;
+    background-color: #F6F0EA;
+}
+
+.gallery-title {
+    text-align: center;
+    font-size: 42px;
+    color: #1a2b4a;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.gallery-subtitle {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 50px;
+}
+
+.gallery-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px;
+}
+
+.gallery-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-card-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    background-color: #f0f0f0;
+}
+
+.gallery-card-content {
+    padding: 20px;
+}
+
+.gallery-card-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #1a2b4a;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.gallery-card-description {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.gallery-card-price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 15px;
+}
+
+.gallery-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #F6F0EA;
+}
+
+.gallery-card-date {
+    font-size: 12px;
+    color: #999;
+}
+
+.loading {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    color: #666;
+}
+
+.error {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+    font-size: 18px;
+    color: #d32f2f;
+    background: #ffebee;
+    border-radius: 10px;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 60px;
+}
+
+.empty-state h2 {
+    font-size: 28px;
+    color: #1a2b4a;
+    margin-bottom: 15px;
+}
+
+.empty-state p {
+    font-size: 16px;
+    color: #666;
+}
+
+.btn-back {
+    background: linear-gradient(135deg, var(--coral) 0%, var(--coral-dark) 100%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 2px 5px rgba(253, 89, 50, 0.3);
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(253, 89, 50, 0.4);
+}
+
+.book-card {
+    position: relative;
+}
+
+.book-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background: linear-gradient(135deg, rgba(177, 216, 210, 0.1) 0%, rgba(241, 229, 223, 0.1) 100%);
+    pointer-events: none;
+}
+
+.upload-area {
+    transition: all 0.3s ease;
+}
+
+.upload-area:hover {
+    border-color: var(--coral-dark) !important;
+    background-color: #fafafa !important;
+}
+
+#uploadedPreviewGrid img {
+    transition: transform 0.3s;
+}
+
+#uploadedPreviewGrid img:hover {
+    transform: scale(1.05);
+}
+
+#generatedImagesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 20px 0;
+}
+
+@media (max-width: 768px) {
+    .gallery-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        padding: 10px;
+    }
+    
+    .gallery-title {
+        font-size: 32px;
+    }
+    
+    .gallery-card-image {
+        height: 250px;
+    }
+    
+    #uploadSection {
+        padding: 20px;
+        margin: 20px;
+    }
+    
+    #generatedImagesGrid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+}
+

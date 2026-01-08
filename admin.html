@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Overlay -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-container">
+            <img src="./assets/img/logo.png" alt="Logo">
+            <h2>Admin Login</h2>
+            <p>Enter your password to access the admin panel</p>
+            <form class="login-form" id="loginForm">
+                <input type="password" id="passwordInput" placeholder="Enter password" required autofocus>
+                <div class="error-message" id="errorMessage">Incorrect password. Please try again.</div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Content (hidden until authenticated) -->
+    <div class="admin-content" id="adminContent">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="./assets/img/logo.png" alt="Logo">
+            <h2>Admin Panel</h2>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active" data-section="dashboard">
+                Dashboard
+            </a></li>
+            <li><a href="#" data-section="books">
+                Books
+            </a></li>
+            <li><a href="#" data-section="images">
+                Images
+            </a></li>
+            <li><a href="#" data-section="promocodes">
+                Promo Codes
+            </a></li>
+            <li><a href="./index.html">
+                Back to Site
+            </a></li>
+            <li><a href="#" id="sidebarLogoutBtn">
+                Logout
+            </a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <div class="header">
+            <h1 id="page-title">Dashboard</h1>
+            <div class="header-right">
+                <div class="user-info">
+                    <div class="user-avatar">A</div>
+                    <div>
+                        <div style="font-weight: bold; color: #1a2b4a;">Admin User</div>
+                        <div style="font-size: 12px; color: #666;">Administrator</div>
+                    </div>
+                </div>
+                <button class="btn-logout" id="logoutBtn">
+                    Logout
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboard" class="content-section active">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Users</h3>
+                    <div class="stat-value">0</div>
+                    <div class="stat-change">No change</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Books Created</h3>
+                    <div class="stat-value">0</div>
+                    <div class="stat-change">No change</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Active Sessions</h3>
+                    <div class="stat-value">0</div>
+                    <div class="stat-change">No change</div>
+                </div>
+                <div class="stat-card">
+                    <h3>Revenue</h3>
+                    <div class="stat-value">$0</div>
+                    <div class="stat-change">No change</div>
+                </div>
+            </div>
+
+            <div class="content-section" style="display: block; margin-bottom: 0;">
+                <h2 class="section-title">Recent Activity</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>User</th>
+                                <th>Action</th>
+                                <th>Time</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="4" style="text-align: center; padding: 40px; color: #999;">No recent activity</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Books Section -->
+        <div id="books" class="content-section">
+            <h2 class="section-title">Book Management</h2>
+            <div class="search-filter">
+                <input type="text" id="bookSearchInput" placeholder="Search books...">
+                <button class="btn btn-primary" id="bookSearchBtn">Search</button>
+                <button class="btn btn-success" id="addBookBtn">Add New Book</button>
+            </div>
+            <div class="table-container">
+                <table id="booksTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Images</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="booksTableBody">
+                        <tr>
+                            <td colspan="7" style="text-align: center; padding: 40px; color: #999;">Loading books...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Images Section -->
+        <div id="images" class="content-section">
+            <h2 class="section-title">Image Management</h2>
+            <div class="search-filter">
+                <input type="text" id="imageSearchInput" placeholder="Search images...">
+                <button class="btn btn-primary" id="imageSearchBtn">Search</button>
+                <button class="btn btn-success" id="addImageBtn">Add New Image</button>
+            </div>
+            <div class="table-container">
+                <table id="imagesTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Image</th>
+                            <th>Name</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="imagesTableBody">
+                        <tr>
+                            <td colspan="5" style="text-align: center; padding: 40px; color: #999;">Loading images...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Promo Codes Section -->
+        <div id="promocodes" class="content-section">
+            <h2 class="section-title">Promo Codes Management</h2>
+            <div class="search-filter">
+                <input type="text" id="promoCodeSearchInput" placeholder="Search promo codes...">
+                <button class="btn btn-primary" id="promoCodeSearchBtn">Search</button>
+                <button class="btn btn-success" id="addPromoCodeBtn">Add New Promo Code</button>
+            </div>
+            <div class="table-container">
+                <table id="promoCodesTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Code</th>
+                            <th>Discount</th>
+                            <th>Status</th>
+                            <th>Created</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="promoCodesTableBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; padding: 40px; color: #999;">Loading promo codes...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    </div>
+    <!-- End Admin Content -->
+
+    <!-- Image Modal -->
+    <div class="modal" id="imageModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Add New Image</h2>
+                <span class="close" id="closeModal">&times;</span>
+            </div>
+            <form id="imageForm" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="imageName">Name *</label>
+                    <input type="text" id="imageName" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="imageFile">Image File *</label>
+                    <input type="file" id="imageFile" name="image" accept="image/*" required>
+                    <div id="imagePreview" style="margin-top: 10px;"></div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveImageBtn">Save Image</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Book Modal -->
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="bookModalTitle">Add New Book</h2>
+                <span class="close" id="closeBookModal">&times;</span>
+            </div>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label for="bookTitle">Title *</label>
+                    <input type="text" id="bookTitle" name="title" required>
+                </div>
+                <div class="form-group">
+                    <label for="bookDescription">Description</label>
+                    <textarea id="bookDescription" name="description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="bookPrice">Price</label>
+                    <input type="number" id="bookPrice" name="price" step="0.01" min="0">
+                </div>
+                <div class="form-group">
+                    <label for="bookAuthor">Author</label>
+                    <input type="text" id="bookAuthor" name="author">
+                </div>
+                <div class="form-group">
+                    <label>Cover Image (Optional)</label>
+                    <div id="bookCoverSelector" style="max-height: 200px; overflow-y: auto; border: 1px solid #ddd; border-radius: 5px; padding: 10px; margin-top: 10px;">
+                        <p style="color: #999; text-align: center; padding: 20px;">Loading images...</p>
+                    </div>
+                    <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">Select a cover image for this book (optional)</small>
+                    <div id="selectedCoverPreview" style="margin-top: 10px; display: none;">
+                        <p style="font-weight: bold; margin-bottom: 5px;">Selected Cover:</p>
+                        <img id="selectedCoverImg" src="" alt="Selected Cover" style="max-width: 150px; max-height: 150px; border-radius: 5px; border: 2px solid var(--coral-dark);">
+                        <button type="button" id="removeCoverBtn" class="btn btn-secondary btn-sm" style="margin-top: 5px; display: block;">Remove Cover</button>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Select Images (Pages) *</label>
+                    <div id="bookImagesSelector" style="max-height: 300px; overflow-y: auto; border: 1px solid #ddd; border-radius: 5px; padding: 10px; margin-top: 10px;">
+                        <p style="color: #999; text-align: center; padding: 20px;">Loading images...</p>
+                    </div>
+                    <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">Select images that will be used as pages in this book</small>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelBookBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="saveBookBtn">Save Book</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Promo Code Modal -->
+    <div class="modal" id="promoCodeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="promoCodeModalTitle">Add New Promo Code</h2>
+                <span class="close" id="closePromoCodeModal">&times;</span>
+            </div>
+            <form id="promoCodeForm">
+                <div class="form-group">
+                    <label for="promoCodeDiscount">Discount Percentage *</label>
+                    <input type="number" id="promoCodeDiscount" name="discount_percentage" step="0.01" min="0" max="100" required>
+                    <small style="color: #666; font-size: 12px; margin-top: 5px; display: block;">Promo code will be automatically generated (6 characters: letters and digits)</small>
+                </div>
+                <div class="form-group checkbox-group">
+                    <label for="promoCodeActive" class="checkbox-label">
+                        <input type="checkbox" id="promoCodeActive" name="is_active" checked>
+                        <span>Active</span>
+                    </label>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelPromoCodeBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="savePromoCodeBtn">Save Promo Code</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
+

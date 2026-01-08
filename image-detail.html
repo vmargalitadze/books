@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>სურათის დეტალები</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="image-detail.css">
+</head>
+<body>
+    <!-- SOCIAL MEDIA -->
+    <div class="social-media">
+        <div class="simg">
+            <img src="./assets/img/facebook.png" alt="Facebook" />
+            <img src="./assets/img/instagram.png" alt="Instagram" />
+            <img src="./assets/img/tiktok.png" alt="TikTok" />
+        </div>
+        <p style="text-transform: uppercase;">წიგნი რომელიც შენთვის დაიწერა</p>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="nav">
+        <img src="./assets/img/logo.png" alt="">
+        <div class="navflex">
+            <a href="./index.html">home</a>
+            <a href="./about.html">about</a>
+            <a href="#">services</a>
+            <a href="#">contact</a>
+            <a href="#">blog</a>
+        </div>
+    </nav>
+
+    <!-- DETAIL SECTION -->
+    <section class="detail-section">
+        <div class="detail-container">
+            <!-- Back Button -->
+            <a href="./images.html" class="back-button">← უკან გალერეაში</a>
+            
+            <!-- Loading State -->
+            <div id="loadingState" class="loading-state">
+                <div class="loading">იტვირთება...</div>
+            </div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state" style="display: none;">
+                <h2>შეცდომა</h2>
+                <p>სურათის ჩატვირთვა ვერ მოხერხდა.</p>
+                <a href="./images.html" class="btn btn-primary">უკან გალერეაში</a>
+            </div>
+
+            <!-- Image Detail Content -->
+            <div id="imageDetail" class="image-detail" style="display: none;">
+                <div class="image-detail-left">
+                    <img id="detailImage" src="" alt="" class="detail-image">
+                </div>
+                
+                <div class="image-detail-right">
+                    <h1 id="detailTitle" class="detail-title"></h1>
+                    <p id="detailDescription" class="detail-description"></p>
+                    
+                    <div class="detail-price-section">
+                        <span class="price-label">ფასი:</span>
+                        <span id="detailPrice" class="detail-price"></span>
+                    </div>
+
+                    <!-- Create Book Button -->
+                    <div class="create-book-section">
+                        <a href="./upload.html" class="btn btn-order" id="createBookBtn">
+                            შექმენი წიგნი
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="fd1">
+            <img src="./assets/img/logo.png" alt="">
+            <p>A space for curious, creative & inquisitive young minds that love to create & play.</p>
+            <div class="icons"></div>
+        </div>
+        <div>
+            <h3>ABOUT US</h3>
+            <ul>
+                <li>About me</li>
+                <li>Our services</li>
+                <li>Our team</li>
+                <li>Contact us</li>
+            </ul>
+        </div>
+        <div>
+            <h3>INSTAGRAM</h3>
+            <div class="insta-gallery">
+                <img src="./assets/img/facebook.png" alt="" />
+                <img src="./assets/img/instagram.png" alt="" />
+                <img src="./assets/img/tiktok.png" alt="" />
+            </div>
+        </div>
+    </footer>
+
+    <script src="image-detail.js"></script>
+</body>
+</html>
+
